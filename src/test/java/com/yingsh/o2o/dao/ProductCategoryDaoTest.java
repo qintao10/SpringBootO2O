@@ -32,7 +32,7 @@ public class ProductCategoryDaoTest {
     @Ignore
     public void testBQueryByShopId(){
         long shopId = 36L;
-        List<ProductCategory> productCategoryList = productCategoryDao.qureyProductCategoryList(shopId);
+        List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
         assertEquals(5,productCategoryList.size());
     }
 
@@ -60,7 +60,7 @@ public class ProductCategoryDaoTest {
     @Ignore
     public void testCDeleteProductCategory() throws Exception {
         long shopId = 36;
-        List<ProductCategory> productCategoryList = productCategoryDao.qureyProductCategoryList(shopId);
+        List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
         for (ProductCategory pc : productCategoryList) {
             if ("累呗2".equals(pc.getProductCategoryName()) || "类别1".equals(pc.getProductCategoryName())) {
                 int effectedNum = productCategoryDao.deleteProductCategory(pc.getProductCategoryId(),

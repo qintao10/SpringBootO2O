@@ -4,6 +4,7 @@ import com.yingsh.o2o.dto.ProductExecution;
 import com.yingsh.o2o.entity.Product;
 import com.yingsh.o2o.entity.ProductCategory;
 import com.yingsh.o2o.entity.Shop;
+import com.yingsh.o2o.service.ProductCategoryService;
 import com.yingsh.o2o.service.ProductGategoryService;
 import com.yingsh.o2o.service.ProductService;
 import com.yingsh.o2o.service.ShopService;
@@ -27,7 +28,7 @@ public class ShopDetailController {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private ProductGategoryService productCategoryService;
+	private ProductCategoryService productCategoryService;
 
 	/**
 	 * 获取店铺信息以及该店铺下面的商品类别列表

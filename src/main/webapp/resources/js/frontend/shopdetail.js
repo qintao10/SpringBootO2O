@@ -19,9 +19,9 @@ $(function() {
 	// 预先加载10条商品信息
 	addItems(pageSize, pageNum);
 
-	// 给兑换礼品的a标签赋值兑换礼品的URL，2.0讲解
-	// $('#exchangelist').attr('href', '/o2o/frontend/awardlist?shopId=' +
-	// shopId);
+	 //给兑换礼品的a标签赋值兑换礼品的URL，2.0讲解
+	 $('#exchangelist').attr('href', '/o2o/frontend/awardlist?shopId=' +
+	 shopId);
 	// 获取本店铺信息以及商品类别信息列表
 	function getSearchDivData() {
 		var url = searchDivUrl;
@@ -31,7 +31,8 @@ $(function() {
 						function(data) {
 							if (data.success) {
 								var shop = data.shop;
-								$('#shop-cover-pic').attr('src', getContextPath() + shop.shopImg);
+								$('#shop-cover-pic').attr('src',
+										getContextPath() + shop.shopImg);
 								$('#shop-update-time').html(
 										new Date(shop.lastEditTime)
 												.Format("yyyy-MM-dd"));
@@ -85,8 +86,8 @@ $(function() {
 							+ '<div class="list-block media-list">' + '<ul>'
 							+ '<li class="item-content">'
 							+ '<div class="item-media">' + '<img src="'
-                            + getContextPath() + item.imgAddr + '" width="44">' + '</div>'
-							+ '<div class="item-inner">'
+							+ getContextPath() + item.imgAddr + '" width="44">'
+							+ '</div>' + '<div class="item-inner">'
 							+ '<div class="item-subtitle">' + item.productDesc
 							+ '</div>' + '</div>' + '</li>' + '</ul>'
 							+ '</div>' + '</div>' + '<div class="card-footer">'

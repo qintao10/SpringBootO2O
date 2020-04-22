@@ -39,20 +39,18 @@ public class HttpServletRequestUtil {
         }
     }
 
-    public static String getString(HttpServletRequest request, String key){
-        try {
-            String result = request.getParameter(key);
-            if(result != null){
-                result = result.trim();
-            }
-            if("".equals(result)){
-                request = null;
-            }
-            return result;
-        }catch (Exception e){
-            return null;
-        }
-
-    }
-
+	public static String getString(HttpServletRequest request, String key) {
+		try {
+			String result = request.getParameter(key);
+			if (result != null) {
+				result = result.trim();
+			}
+			if ("".equals(result)) {
+				result = null;
+			}
+			return result;
+		} catch (Exception e) {
+			return null;
+		}
+	}
 }

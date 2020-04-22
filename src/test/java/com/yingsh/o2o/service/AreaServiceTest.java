@@ -27,9 +27,9 @@ public class AreaServiceTest {
 
     @Test
     public void getAreaList(){
-        List<Area> areaList = areaService.QueryAreaList();
+        List<Area> areaList = areaService.getAreaList();
         cacheService.removeFromCache(areaService.AREAKEY);
-        areaList = areaService.QueryAreaList();
+        areaList = areaService.getAreaList();
         assertEquals(2, areaList.size());
     }
 }

@@ -1,5 +1,6 @@
 package com.yingsh.o2o.service;
 
+import com.yingsh.o2o.dto.AreaExecution;
 import com.yingsh.o2o.entity.Area;
 
 import java.util.List;
@@ -11,5 +12,27 @@ public interface AreaService {
 
     public static final String AREAKEY = "arealist";
 
-    List<Area> QueryAreaList();
+	/**
+	 * ��ȡ�����б����ȴӻ����ȡ
+	 * 
+	 * @return
+	 */
+	List<Area> getAreaList();
+
+	/**
+	 * ����������Ϣ
+	 * 
+	 * @param area
+	 * @return
+	 */
+	AreaExecution addArea(Area area);
+
+	/**
+	 * �޸�������Ϣ
+	 * 
+	 * @param area
+	 * @return
+	 */
+	AreaExecution modifyArea(Area area);
+
 }

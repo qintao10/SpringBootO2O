@@ -8,7 +8,7 @@ import com.yingsh.o2o.entity.ProductCategory;
 import com.yingsh.o2o.entity.Shop;
 import com.yingsh.o2o.enums.ProductStateEnum;
 import com.yingsh.o2o.exceptions.ProductOperationException;
-import com.yingsh.o2o.service.ProductGategoryService;
+import com.yingsh.o2o.service.ProductCategoryService;
 import com.yingsh.o2o.service.ProductService;
 import com.yingsh.o2o.util.CodeUtil;
 import com.yingsh.o2o.util.HttpServletRequestUtil;
@@ -35,7 +35,7 @@ public class ProductManagementController {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private ProductGategoryService productCategoryService;
+	private ProductCategoryService productCategoryService;
 
 	// 支持上传商品详情图的最大数量
 	private static final int IMAGEMAXCOUNT = 6;
@@ -168,6 +168,15 @@ public class ProductManagementController {
 		return modelMap;
 	}
 
+	/**
+	 * 图片预处理
+	 * 
+	 * @param request
+	 * @param thumbnail
+	 * @param productImgList
+	 * @return
+	 * @throws IOException
+	 */
 	private ImageHolder handleImage(HttpServletRequest request, ImageHolder thumbnail, List<ImageHolder> productImgList)
 			throws IOException {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;

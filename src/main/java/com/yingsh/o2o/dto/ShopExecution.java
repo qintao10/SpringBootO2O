@@ -1,7 +1,7 @@
 package com.yingsh.o2o.dto;
 
 import com.yingsh.o2o.entity.Shop;
-import com.yingsh.o2o.enums.ShopStateEnums;
+import com.yingsh.o2o.enums.ShopStateEnum;
 
 import java.util.List;
 
@@ -22,18 +22,18 @@ public class ShopExecution {
 
     public ShopExecution(){}
     // 店铺操作失败的时候使用的构造器
-    public ShopExecution(ShopStateEnums stateEnums){
+    public ShopExecution(ShopStateEnum stateEnums){
         this.state = stateEnums.getState();
         this.stateInfo = stateEnums.getStateInfo();
     }
     // 店铺操作成功的时候使用的构造器
-    public ShopExecution(ShopStateEnums stateEnums, Shop shop){
+    public ShopExecution(ShopStateEnum stateEnums, Shop shop){
         this.state = stateEnums.getState();
         this.stateInfo = stateEnums.getStateInfo();
         this.shop = shop;
     }
     // 店铺操作成功的时候使用的构造器
-    public ShopExecution(ShopStateEnums stateEnums, List<Shop> shopList){
+    public ShopExecution(ShopStateEnum stateEnums, List<Shop> shopList){
         this.state = stateEnums.getState();
         this.stateInfo = stateEnums.getStateInfo();
         this.shopList = shopList;

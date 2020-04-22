@@ -6,7 +6,7 @@ import com.yingsh.o2o.entity.Area;
 import com.yingsh.o2o.entity.PersonInfo;
 import com.yingsh.o2o.entity.Shop;
 import com.yingsh.o2o.entity.ShopCategory;
-import com.yingsh.o2o.enums.ShopStateEnums;
+import com.yingsh.o2o.enums.ShopStateEnum;
 import com.yingsh.o2o.exceptions.ShopOperationException;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -71,7 +71,7 @@ public class ShopServiceTest {
         shop.setShopAddr("test2");
         shop.setPhone("test2");
         shop.setCreateTime(new Date());
-        shop.setEnableStatus(ShopStateEnums.CHECK.getState());
+        shop.setEnableStatus(ShopStateEnum.CHECK.getState());
         File imgFile = new File("F:\\java\\image\\timg.jpg");
         InputStream is = null;
         try {
@@ -81,6 +81,6 @@ public class ShopServiceTest {
         }
         ImageHolder imageHolder = new ImageHolder(imgFile.getName(), is);
         ShopExecution shopExecution = shopService.addShop(shop, imageHolder);
-        assertEquals(ShopStateEnums.CHECK.getState(), shopExecution.getState());
+        assertEquals(ShopStateEnum.CHECK.getState(), shopExecution.getState());
     }
 }

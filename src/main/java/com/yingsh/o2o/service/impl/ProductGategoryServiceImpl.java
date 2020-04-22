@@ -4,7 +4,7 @@ import com.yingsh.o2o.dao.ProductCategoryDao;
 import com.yingsh.o2o.dao.ProductDao;
 import com.yingsh.o2o.dto.ProductCategoryExecution;
 import com.yingsh.o2o.entity.ProductCategory;
-import com.yingsh.o2o.enums.ProductCategoryEnums;
+import com.yingsh.o2o.enums.ProductCategoryStateEnum;
 import com.yingsh.o2o.exceptions.ProductCategoryOperationException;
 import com.yingsh.o2o.service.ProductGategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class ProductGategoryServiceImpl implements ProductGategoryService {
 
     @Override
     public List<ProductCategory> getProductCategoryList(long shopId) {
-        return productCategoryDao.qureyProductCategoryList(shopId);
+        return productCategoryDao.queryProductCategoryList(shopId);
     }
 
     @Override
@@ -40,14 +40,14 @@ public class ProductGategoryServiceImpl implements ProductGategoryService {
                 if (effectNum <= 0) {
                     throw new ProductCategoryOperationException("商品类别创建失败!");
                 } else {
-                    return new ProductCategoryExecution(ProductCategoryEnums.SUCCESS);
+                    return new ProductCategoryExecution(ProductCategoryStateEnum.SUCCESS);
                 }
 
             } catch (Exception e) {
                 throw new ProductCategoryOperationException("batchAddProductCategory error is :" + e.getMessage());
             }
         } else {
-            return new ProductCategoryExecution(ProductCategoryEnums.EMPTY_LIST);
+            return new ProductCategoryExecution(ProductCategoryStateEnum.EMPTY_LIST);
         }
     }
 
@@ -69,7 +69,7 @@ public class ProductGategoryServiceImpl implements ProductGategoryService {
             if (effectedNum <= 0) {
                 throw new ProductCategoryOperationException("商品类别删除失败");
             } else {
-                return new ProductCategoryExecution(ProductCategoryEnums.SUCCESS);
+                return new ProductCategoryExecution(ProductCategoryStateEnum.SUCCESS);
             }
         } catch (Exception e) {
             throw new ProductCategoryOperationException("deleteProductCategory error:" + e.getMessage());

@@ -3,7 +3,8 @@ package com.yingsh.o2o.config.web;
 import com.google.code.kaptcha.servlet.KaptchaServlet;
 import com.yingsh.o2o.interceptor.shopadmin.ShopLoginInterceptor;
 import com.yingsh.o2o.interceptor.shopadmin.ShopPermissionInterceptor;
-//import com.yingsh.o2o.interceptor.superadmin.SuperAdminLoginInterceptor;
+import com.yingsh.o2o.interceptor.superadmin.SuperAdminLoginInterceptor;
+import com.yingsh.o2o.util.PathUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -45,7 +46,7 @@ public class MvcConfiguration implements WebMvcConfigurer, ApplicationContextAwa
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //		 registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/");
-		registry.addResourceHandler("/upload/**").addResourceLocations("file:/home/yingsh/image/upload/");
+		registry.addResourceHandler("/upload/**").addResourceLocations("file:" + PathUtil.getImgBasePath() + "/upload/");
 	}
 
 	/**
@@ -173,17 +174,17 @@ public class MvcConfiguration implements WebMvcConfigurer, ApplicationContextAwa
 		permissionIR.excludePathPatterns("/shopadmin/exchangeaward");
 		/** 超级管理员系统拦截部分 **/
 		interceptPath = "/superadmin/**";
-//		// 注册拦截器
-//		InterceptorRegistration superadminloginIR = registry.addInterceptor(new SuperAdminLoginInterceptor());
-//		// 配置拦截的路径
-//		superadminloginIR.addPathPatterns(interceptPath);
-//		superadminloginIR.excludePathPatterns("/superadmin/login");
-//		superadminloginIR.excludePathPatterns("/superadmin/logincheck");
-//		superadminloginIR.excludePathPatterns("/superadmin/main");
-//		superadminloginIR.excludePathPatterns("/superadmin/top");
-//		superadminloginIR.excludePathPatterns("/superadmin/clearcache4area");
-//		superadminloginIR.excludePathPatterns("/superadmin/clearcache4headline");
-//		superadminloginIR.excludePathPatterns("/superadmin/clearcache4shopcategory");
+		// 注册拦截器
+		InterceptorRegistration superadminloginIR = registry.addInterceptor(new SuperAdminLoginInterceptor());
+		// 配置拦截的路径
+		superadminloginIR.addPathPatterns(interceptPath);
+		superadminloginIR.excludePathPatterns("/superadmin/login");
+		superadminloginIR.excludePathPatterns("/superadmin/logincheck");
+		superadminloginIR.excludePathPatterns("/superadmin/main");
+		superadminloginIR.excludePathPatterns("/superadmin/top");
+		superadminloginIR.excludePathPatterns("/superadmin/clearcache4area");
+		superadminloginIR.excludePathPatterns("/superadmin/clearcache4headline");
+		superadminloginIR.excludePathPatterns("/superadmin/clearcache4shopcategory");
 	}
 
 }

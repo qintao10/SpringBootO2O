@@ -67,7 +67,7 @@ public class ShopListController {
 		List<Area> areaList = null;
 		try {
 			// 获取区域列表信息
-			areaList = areaService.QueryAreaList();
+			areaList = areaService.getAreaList();
 			modelMap.put("areaList", areaList);
 			modelMap.put("success", true);
 			return modelMap;

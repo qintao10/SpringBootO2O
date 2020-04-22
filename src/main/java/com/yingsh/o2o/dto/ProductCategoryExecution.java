@@ -1,7 +1,7 @@
 package com.yingsh.o2o.dto;
 
 import com.yingsh.o2o.entity.ProductCategory;
-import com.yingsh.o2o.enums.ProductCategoryEnums;
+import com.yingsh.o2o.enums.ProductCategoryStateEnum;
 
 import java.util.List;
 
@@ -19,12 +19,12 @@ public class ProductCategoryExecution {
     public ProductCategoryExecution() {
     }
     // 操作失败的时候使用的构造器
-    public ProductCategoryExecution(ProductCategoryEnums pe) {
+    public ProductCategoryExecution(ProductCategoryStateEnum pe) {
         this.state = pe.getState();
         this.stateInfo = pe.getStateInfo();
     }
     // 操作成功的时候使用的构造器
-    public ProductCategoryExecution(ProductCategoryEnums pe, List<ProductCategory> productCategoryList) {
+    public ProductCategoryExecution(ProductCategoryStateEnum pe, List<ProductCategory> productCategoryList) {
         this.state = pe.getState();
         this.stateInfo = pe.getStateInfo();
         this.productCategoryList = productCategoryList;
